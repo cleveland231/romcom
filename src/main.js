@@ -10,18 +10,18 @@ var saveCoverButton = document.querySelector(".save-cover-button")
 var viewSavedCoversButton = document.querySelector(".view-saved-button")
 var makeYourOwnCover = document.querySelector(".make-new-button")
 var homeButton = document.querySelector(".home-button")
-
+var hiddenForm = document.querySelector(".form-view")
 
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
-var currentCover;
+var currentCover
 
 // Add your event listeners here 👇
-// window.addEventListener("load", getCoverInfo)
-
-
+window.addEventListener("load", randomLoadCover)
+showRandomButtonCover.addEventListener("click", randomLoadCover)
+makeYourOwnCover.addEventListener("click", showHidden)
 
 // Create your event handlers and other functions here 👇
 
@@ -32,34 +32,20 @@ function getRandomItemFromArray(array) {
   return array[randomArrayIndex]
 }
 
-// var cover1 = new Cover(coverImgSrc, title, descriptor1, descriptor2)
-//
-// function getCoverInfo(covers, title, descriptor1, descriptor2) {
-//   getRandomIndex(this.covers)
-//   getRandomIndex(this.title)
-//   getRandomIndex(this.descriptor1)
-//   getRandomIndex(this.descriptor2)
-// }
 
-// function getRandomImage() {
-//   console.log(covers)
-// }
 
+function randomLoadCover(){
 
 coverImage.src = getRandomItemFromArray(covers)
 
-
 coverTitle.innerText = getRandomItemFromArray(titles)
-
 
 tagLine1.innerText = getRandomItemFromArray(descriptors)
 
-
 tagLine2.innerText = getRandomItemFromArray(descriptors)
+}
 
-// function showDescriptors() {
-//   for (var i = 0; i < descriptors.length; i++) {
-//   tagLine1.innerText = descriptors[i]toString(getRandomIndex(descriptors))
-//   }
-//   return tagLine1
+
+// function showHidden(){
+//   hiddenForm.classList.toggle("hidden");}
 // }

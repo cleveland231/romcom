@@ -5,7 +5,7 @@ var tagLine1 = document.querySelector(".tagline-1")
 var tagLine2 = document.querySelector(".tagline-2")
 var priceTag = document.querySelector(".price-tag")
 var overLay = document.querySelector(".overlay")
-var showRandomButtonCover = document.querySelector(".Random-cover-button")
+var showRandomButtonCover = document.querySelector(".random-cover-button")
 var saveCoverButton = document.querySelector(".save-cover-button")
 var viewSavedCoversButton = document.querySelector(".view-saved-button")
 var makeYourOwnCover = document.querySelector(".make-new-button")
@@ -27,8 +27,9 @@ var currentCover;
 
 
 // We've provided one function to get you started
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
+function getRandomItemFromArray(array) {
+  var randomArrayIndex = Math.floor(Math.random() * array.length);
+  return array[randomArrayIndex]
 }
 
 // var cover1 = new Cover(coverImgSrc, title, descriptor1, descriptor2)
@@ -44,14 +45,21 @@ function getRandomIndex(array) {
 //   console.log(covers)
 // }
 
-// coverImage.innerText = getRandomIndex(covers)
-// coverTitle.innerText = getRandomIndex(titles)
-// tagLine1.innerText = descriptors[i].toString(getRandomIndex(descriptors))
-// tagLine2.innerText = descriptors[i].toString(getRandomIndex(descriptors))
 
-function showDescriptors() {
-  for (var i = 0; i < descriptors.length; i++) {
-  tagLine1.innerText = descriptors[i]toString(getRandomIndex(descriptors))
-  }
-  return tagLine1
-}
+coverImage.src = getRandomItemFromArray(covers)
+
+
+coverTitle.innerText = getRandomItemFromArray(titles)
+
+
+tagLine1.innerText = getRandomItemFromArray(descriptors)
+
+
+tagLine2.innerText = getRandomItemFromArray(descriptors)
+
+// function showDescriptors() {
+//   for (var i = 0; i < descriptors.length; i++) {
+//   tagLine1.innerText = descriptors[i]toString(getRandomIndex(descriptors))
+//   }
+//   return tagLine1
+// }

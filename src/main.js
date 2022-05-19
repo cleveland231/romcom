@@ -5,6 +5,12 @@ var tagLine1 = document.querySelector(".tagline-1")
 var tagLine2 = document.querySelector(".tagline-2")
 var priceTag = document.querySelector(".price-tag")
 var overLay = document.querySelector(".overlay")
+var showRandomButtonCover = document.querySelector(".Random-cover-button")
+var saveCoverButton = document.querySelector(".save-cover-button")
+var viewSavedCoversButton = document.querySelector(".view-saved-button")
+var makeYourOwnCover = document.querySelector(".make-new-button")
+var homeButton = document.querySelector(".home-button")
+
 
 // We've provided a few variables below
 var savedCovers = [

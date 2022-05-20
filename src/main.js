@@ -11,6 +11,8 @@ var viewSavedCoversButton = document.querySelector(".view-saved-button")
 var makeYourOwnCover = document.querySelector(".make-new-button")
 var homeButton = document.querySelector(".home-button")
 var hiddenForm = document.querySelector(".form-view")
+var mainCover = document.querySelector(".main-cover")
+var savedCoversSection = document.querySelector(".saved-covers-section")
 
 // We've provided a few variables below
 var savedCovers = [
@@ -22,6 +24,7 @@ var currentCover
 window.addEventListener("load", randomLoadCover)
 showRandomButtonCover.addEventListener("click", randomLoadCover)
 makeYourOwnCover.addEventListener("click", showHidden)
+viewSavedCoversButton.addEventListener("click", showSavedCovers)
 
 // Create your event handlers and other functions here 👇
 
@@ -46,6 +49,15 @@ tagLine2.innerText = getRandomItemFromArray(descriptors)
 }
 
 
-// function showHidden(){
-//   hiddenForm.classList.toggle("hidden");}
-// }
+function showHidden() {
+makeYourOwnCover.classList.toggle("hidden")
+mainCover.classList.toggle("hidden")
+hiddenForm.classList.toggle("hidden")
+showRandomButtonCover.classList.toggle("hidden")
+saveCoverButton.classList.toggle("hidden")
+homeButton.classList.toggle("hidden")
+}
+
+function showSavedCovers() {
+
+}

@@ -12,7 +12,7 @@ var makeYourOwnCover = document.querySelector(".make-new-button")
 var homeButton = document.querySelector(".home-button")
 var hiddenForm = document.querySelector(".form-view")
 var mainCover = document.querySelector(".main-cover")
-var savedCoversSection = document.querySelector(".saved-covers-section")
+var savedCoversSection = document.querySelector(".saved-view")
 
 // We've provided a few variables below
 var savedCovers = [
@@ -25,7 +25,7 @@ window.addEventListener("load", randomLoadCover)
 showRandomButtonCover.addEventListener("click", randomLoadCover)
 makeYourOwnCover.addEventListener("click", showHidden)
 viewSavedCoversButton.addEventListener("click", showSavedCovers)
-
+saveCoverButton.addEventListener("click", saveCover)
 // Create your event handlers and other functions here 👇
 
 
@@ -46,6 +46,9 @@ coverTitle.innerText = getRandomItemFromArray(titles)
 tagLine1.innerText = getRandomItemFromArray(descriptors)
 
 tagLine2.innerText = getRandomItemFromArray(descriptors)
+
+currentCover =  new Cover(coverImage.src, coverTitle.innerText, tagLine1.innerText, tagLine2.innerText )
+console.log( currentCover)
 }
 
 
@@ -59,5 +62,19 @@ homeButton.classList.toggle("hidden")
 }
 
 function showSavedCovers() {
+  savedCoversSection.innerHTML( )
+  savedCoversSection.classList.toggle("hidden")
 
 }
+
+function saveCover(){
+  savedCovers.push( currentCover)
+  console.log(savedCovers)
+}
+// need to display the savecovers variable
+// work when pressing "view saved covers buttom"
+// homepage should hidden
+//When a user clicks the “View Saved Covers” button, we should see the saved covers section, and the homepage view should be hidden
+//When the Saved Covers view is visible, the “Show New Random Cover” and “Save Cover” buttons should be hidden
+//When the Saved Covers view is visible, the “Home” button should be visible
+//

@@ -36,8 +36,6 @@ function getRandomItemFromArray(array) {
   return array[randomArrayIndex]
 }
 
-
-
 function randomCover(){
 currentCover = new Cover(
   getRandomItemFromArray(covers),
@@ -72,22 +70,22 @@ function randomLoadCover() {
 }
 
 function showForm() {
-makeYourOwnCover.classList.toggle("hidden")
-mainCover.classList.toggle("hidden")
+makeYourOwnCover.classList.remove("hidden")
+mainCover.classList.add("hidden")
 hiddenForm.classList.toggle("hidden")
-showRandomButtonCover.classList.toggle("hidden")
-saveCoverButton.classList.toggle("hidden")
-homeButton.classList.toggle("hidden")
+showRandomButtonCover.classList.add("hidden")
+saveCoverButton.classList.add("hidden")
+homeButton.classList.remove("hidden")
 }
 
 function showSavedCovers() {
   // savedCoversSection.innerHTML( )
   // savedCoversSection.classList.toggle("hidden")
-  savedCoversSection.classList.toggle("hidden")
-  mainCover.classList.toggle("hidden")
-  showRandomButtonCover.classList.toggle("hidden")
-  saveCoverButton.classList.toggle("hidden")
-  homeButton.classList.toggle("hidden")
+  savedCoversSection.classList.remove("hidden")
+  mainCover.classList.add("hidden")
+  showRandomButtonCover.classList.add("hidden")
+  saveCoverButton.classList.add("hidden")
+  homeButton.classList.remove("hidden")
   savedCoversSection.innerHTML = `<div class="mini-cover">
   <img class="cover-image mini-cover" src=${savedCovers[0].cover}>
   <div>`
@@ -96,18 +94,57 @@ function showSavedCovers() {
 }
 
 function showHome() {
-  homeButton.classList.toggle("hidden")
-  mainCover.classList.toggle("hidden")
-  showRandomButtonCover.classList.toggle("hidden")
-  saveCoverButton.classList.toggle("hidden")
+  homeButton.classList.add("hidden")
+  mainCover.classList.remove("hidden")
+  showRandomButtonCover.classList.remove("hidden")
+  saveCoverButton.classList.remove("hidden")
 }
 
 function saveCover(){
   // savedCover.classList.toggle("hidden")
-
   savedCovers.push(currentCover)
   console.log(savedCovers)
 }
+
+var formCover = document.querySelector('#cover')
+var formTitle = document.querySelector('#title')
+var formdescriptor1 = document.querySelector('#descriptor1')
+var formDescriptor2 = document.querySelector('#descriptor2')
+
+// var userCover = document.querySelector('.user-cover')
+// var userTitle= document.querySelector('.user-title')
+// var userDescriptor1 = document.querySelector('.user-desc1')
+// var userDescriptor2 = document.querySelector('.user-desc2')
+
+var createNewBookButton = document.querySelector('.create-new-book-button') ;
+
+createNewBookButton.addEventListener('click', makeForm) ;
+
+function makeForm(event) {
+  event.preventDefault();
+
+  var cover = formCover.value ; // String
+
+  var title = formTitle.value ; // String
+
+  var descriptor1 = formdescriptor1.value ;// string
+
+  var descriptor2 = formDescriptor2.value ;// string
+
+ currentCover = new Cover(cover, title , descriptor1, descriptor2)
+
+ loadNewCover()
+  mainCover.classList.remove("hidden")//
+  hiddenForm.classList.add("hidden")
+}
+
+
+
+
+
+
+
+
 // need to display the savecovers variable
 // work when pressing "view saved covers buttom"
 // homepage should hidden

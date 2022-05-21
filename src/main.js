@@ -23,9 +23,10 @@ var currentCover
 // Add your event listeners here 👇
 window.addEventListener("load", randomLoadCover)
 showRandomButtonCover.addEventListener("click", randomLoadCover)
-makeYourOwnCover.addEventListener("click", showHidden)
+makeYourOwnCover.addEventListener("click", showForm)
 viewSavedCoversButton.addEventListener("click", showSavedCovers)
 saveCoverButton.addEventListener("click", saveCover)
+homeButton.addEventListener("click", showHome)
 // Create your event handlers and other functions here 👇
 
 
@@ -37,22 +38,40 @@ function getRandomItemFromArray(array) {
 
 
 
-function randomLoadCover(){
+function randomCover(){
+currentCover = new Cover(
+  getRandomItemFromArray(covers),
+  getRandomItemFromArray(titles),
+  getRandomItemFromArray(descriptors),
+  getRandomItemFromArray(descriptors)
+)
 
-coverImage.src = getRandomItemFromArray(covers)
 
-coverTitle.innerText = getRandomItemFromArray(titles)
-
-tagLine1.innerText = getRandomItemFromArray(descriptors)
-
-tagLine2.innerText = getRandomItemFromArray(descriptors)
-
-currentCover =  new Cover(coverImage.src, coverTitle.innerText, tagLine1.innerText, tagLine2.innerText )
-console.log( currentCover)
+// coverImage.src = getRandomItemFromArray(covers)
+//
+// coverTitle.innerText = getRandomItemFromArray(titles)
+//
+// tagLine1.innerText = getRandomItemFromArray(descriptors)
+//
+// tagLine2.innerText = getRandomItemFromArray(descriptors)
+//
+// currentCover =  new Cover(coverImage.src, coverTitle.innerText, tagLine1.innerText, tagLine2.innerText )
+// console.log( currentCover)
 }
 
+function loadNewCover() {
+  coverImage.src = currentCover.cover
+  coverTitle.innerText = currentCover.title
+  tagLine1.innerText = currentCover.tagline1
+  tagLine2.innerText = currentCover.tagline2
+}
 
-function showHidden() {
+function randomLoadCover() {
+  randomCover()
+  loadNewCover()
+}
+
+function showForm() {
 makeYourOwnCover.classList.toggle("hidden")
 mainCover.classList.toggle("hidden")
 hiddenForm.classList.toggle("hidden")
@@ -62,13 +81,31 @@ homeButton.classList.toggle("hidden")
 }
 
 function showSavedCovers() {
-  savedCoversSection.innerHTML( )
+  // savedCoversSection.innerHTML( )
+  // savedCoversSection.classList.toggle("hidden")
   savedCoversSection.classList.toggle("hidden")
+  mainCover.classList.toggle("hidden")
+  showRandomButtonCover.classList.toggle("hidden")
+  saveCoverButton.classList.toggle("hidden")
+  homeButton.classList.toggle("hidden")
+  savedCoversSection.innerHTML = `<div class="mini-cover">
+  <img class="cover-image mini-cover" src=${savedCovers[0].cover}>
+  <div>`
+  // maybe use for loop
+  // return savedCovers
+}
 
+function showHome() {
+  homeButton.classList.toggle("hidden")
+  mainCover.classList.toggle("hidden")
+  showRandomButtonCover.classList.toggle("hidden")
+  saveCoverButton.classList.toggle("hidden")
 }
 
 function saveCover(){
-  savedCovers.push( currentCover)
+  // savedCover.classList.toggle("hidden")
+
+  savedCovers.push(currentCover)
   console.log(savedCovers)
 }
 // need to display the savecovers variable

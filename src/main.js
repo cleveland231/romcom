@@ -12,7 +12,7 @@ var makeYourOwnCover = document.querySelector(".make-new-button")
 var homeButton = document.querySelector(".home-button")
 var hiddenForm = document.querySelector(".form-view")
 var mainCover = document.querySelector(".main-cover")
-var savedView = document.querySelector(".saved-view")
+var savedView = document.querySelector(".view.saved-view")
 var savedCoversSection = document.querySelector(".saved-covers-section")
 var formCover = document.querySelector('#cover')
 var formTitle = document.querySelector('#title')
@@ -20,6 +20,7 @@ var formdescriptor1 = document.querySelector('#descriptor1')
 var formDescriptor2 = document.querySelector('#descriptor2')
 var createNewBookButton = document.querySelector('.create-new-book-button')
 var miniCovers = document.querySelectorAll(".mini-cover")
+var homeView = document.querySelector(".home-view")
 
 // We've provided a few variables below
 var savedCovers = [
@@ -35,7 +36,8 @@ viewSavedCoversButton.addEventListener("click", showSavedCovers)
 saveCoverButton.addEventListener("click", saveCover)
 homeButton.addEventListener("click", showHome)
 createNewBookButton.addEventListener('click', makeForm)
-// savedView.addEventListener("dblclick", deleteSavedCover)
+
+
 // Create your event handlers and other functions here 👇
 
 
@@ -73,6 +75,7 @@ hiddenForm.classList.remove("hidden")
 showRandomButtonCover.classList.add("hidden")
 saveCoverButton.classList.add("hidden")
 homeButton.classList.remove("hidden")
+savedView.classList.add("hidden")
 }
 
 function makeForm(event) {
@@ -86,6 +89,8 @@ function makeForm(event) {
   mainCover.classList.remove("hidden")//
   hiddenForm.classList.add("hidden")
   showRandomButtonCover.classList.add("hidden")
+  savedCoversSection.classList.add("hidden")
+  // miniCovers.classList.add("hidden")
 }
 
 function showHome() {
@@ -94,6 +99,10 @@ function showHome() {
   showRandomButtonCover.classList.remove("hidden")
   saveCoverButton.classList.remove("hidden")
   hiddenForm.classList.add("hidden")
+  savedCoversSection.classList.add("hidden")
+homeView.classList.remove("hidden")
+savedView.classList.add("hidden")
+
 }
 
 function showSavedCovers() {
@@ -102,15 +111,18 @@ function showSavedCovers() {
   showRandomButtonCover.classList.add("hidden")
   saveCoverButton.classList.add("hidden")
   homeButton.classList.remove("hidden")
-  viewSavedCoversButton.classList.add("hidden")
+  viewSavedCoversButton.classList.remove("hidden")
+  savedCoversSection.classList.remove("hidden")
+  // homeview.classList.add("hidden")
+hiddenForm.classList.add("hidden")
 
   savedCoversSection.innerHTML = " "
+
   for (var i = 0; i < savedCovers.length; i++) {
   savedCoversSection.innerHTML += `<section class="mini-cover" id="${savedCovers[i].id}">
   <img class="mini-cover" src=${savedCovers[i].cover}>
   <h2 class="cover-title"> ${savedCovers[i].title}</h2>
   <h3 class="tagline">A tale of <span class="tagline-1"> ${savedCovers[i].tagline1} </span> and <span class="tagline-2"> ${savedCovers[i].tagline2} </span></h3>
-
   </section>`
   // console.log(savedCovers)
   }
@@ -137,25 +149,7 @@ function deleteSavedCover(event) {
   if (event.currentTarget.id == savedCovers[i].id) {
   savedCovers.splice(i, 1)
   }
-  console.log("IT WORKS!!!")
-  console.log(savedCovers)
+
 }
 showSavedCovers()
 }
-
-// function saveCover(event) {
-//   event.preventDefault();
-//   for (var i = 0; i < savedCovers.length; i++) {
-//   if (savedCovers.includes(savedCovers[i])) {
-//     savedCovers.push(currentCover)
-//   } else {
-//   savedCovers.push(currentCover)
-//   console.log(savedCovers)
-// }
-// }
-// }
-
-// When a user clicks the “Save Cover” button, the current cover will be added to the savedCovers array
-// If a user clicks the “Save Cover” more than once on a single cover, it will still only be saved once (no duplicates)
-// When a user clicks the “View Saved Covers” button, we should see the saved covers section
-// All the covers in the savedCovers array should be displayed in the saved covers section

@@ -9,14 +9,13 @@
   - [Deployed Page](#deployed-page)
   - [Possible Future Extensions](#possible-future-extensions)
   - [Set Up](#set-up)
-  - [Organizational Resources](#organizational-resources)
   - [Sources](#sources)
   - [Contributors](#contributors)
   - [Project Specs](#project-specs)
 
 ## Introduction
 
-  Visit RomCom
+  - RomCom is a website that allows you to view save and make your own    romcom posters!
 
 ## Technologies
   - Javascript
@@ -24,24 +23,24 @@
   - CSS
 
 ## Features
+  - You are able to iterate through randomly generated cover images, taglines and descriptors.
+  - You are able to save and view the covers randomly generated and the covers the user can create.
+  - You can upload your own cover photo, as well as paste your own descriptors and title onto your created cover.
+  - You can also double click on saved covers to delete them from your saved inventory.
 
-   - You are able to create and locally store ideas to return to at a later date.
-   - You can create a title and a body for your idea.
-   - If you have an idea you really like, then click the star on the right corner of the idea to favorite it.
-   - Also, if you have already fulfilled an idea or just don't like it anymore, you can delete it.
 
 ## Illustrations
 
-![IdeaBox gif](https://user-images.githubusercontent.com/80136642/121288832-d770a500-c898-11eb-92bc-f449b748259a.gif)
+![RomCom](https://files.slack.com/files-pri/T029P2S9M-F03GA1BK4R4/screen_shot_2022-05-22_at_4.08.40_pm.png)
 
 ## Deployed Page
 
-Visit our published IdeaBox page [here](https://csmucker83.github.io/ideabox/)
+Visit our published RomCom page [here](https://cleveland231.github.io/romcom/)
 
 ## Possible Future Extensions
 
-  - Create a favorites section to view all of favorited ideas.
-  - Create search bar functionality to filter through and sort ideas.
+  - Create a new font to add to user created covers.
+  - Have the option to search for specific covers.
 
 ## Set Up
 
@@ -49,20 +48,18 @@ Visit our published IdeaBox page [here](https://csmucker83.github.io/ideabox/)
 2. Clone the repo to your local machine
 3. View the project in the browser by running open index.html in your terminal
 
-## Organizational Resources
-- [Trello Board](https://trello.com/b/aq7mVHoQ/ideabox)
-- [Wireframe](https://miro.com/app/board/o9J_lBUsMVU=/)
-
 ## Sources
-  - [MDN](http://developer.mozilla.org/en-US/)
-  - [W3Schools](https://www.w3schools.com/)
-  - [CSS-TRICKS](https://css-tricks.com/)
+  -[MDN Current Target](https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget)
+  -[MDN Expression and Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+  -[MDN Object Instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+  -[MDN Event Prevent Default](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+  -[Turing DOM lesson](https://frontend.turing.edu/lessons/module-1/js-intro-to-the-dom.html)
 
 ## Contributors
   - [Cleveland Ticoalu](https://github.com/cleveland231)
   - [Hunter Monroe](https://github.com/Hmonroe2)
-  
+
 
 
 ## Project Specs
-  - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/ideabox-group.html)
+  - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/romcom-pair-v2.html)

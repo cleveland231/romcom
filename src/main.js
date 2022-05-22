@@ -39,8 +39,6 @@ createNewBookButton.addEventListener('click', makeForm)
 
 
 // Create your event handlers and other functions here 👇
-
-
 // We've provided one function to get you started
 function getRandomItemFromArray(array) {
   var randomArrayIndex = Math.floor(Math.random() * array.length);
@@ -90,6 +88,7 @@ function makeForm(event) {
   hiddenForm.classList.add("hidden")
   showRandomButtonCover.classList.add("hidden")
   savedCoversSection.classList.add("hidden")
+  saveCoverButton.classList.remove("hidden")
   // miniCovers.classList.add("hidden")
 }
 
@@ -113,8 +112,7 @@ function showSavedCovers() {
   homeButton.classList.remove("hidden")
   viewSavedCoversButton.classList.remove("hidden")
   savedCoversSection.classList.remove("hidden")
-  // homeview.classList.add("hidden")
-hiddenForm.classList.add("hidden")
+  hiddenForm.classList.add("hidden")
 
   savedCoversSection.innerHTML = " "
 
